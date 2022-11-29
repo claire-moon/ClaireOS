@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+var commandLine = document.createElement('div');
+commandLine.innerHTML = '> ';
+document.body.appendChild(commandLine);
+
+document.onkeypress = function(e) {
+  commandLine.innerHTML += String.fromCharCode(e.charCode);
+}
+
+document.onkeydown = function(e) {
+  if (e.keyCode == 8) {
+    commandLine.innerHTML = commandLine.innerHTML.slice(0, -1);
+  }
+}
+
+document.onkeyup = function(e) {
+  if (e.keyCode == 13) {
+    commandLine.innerHTML += '<br>';
+    commandLine.innerHTML += '> ';
+  }
+}
+
+commandLine.style.fontWeight = 'bold';
+
+document.body.style.backgroundColor = 'blue';
+
+commandLine.style.color = 'white';
+
+commandLine.style.fontFamily = 'courier new';
+
+var welcome = document.createElement('div');
+welcome.innerHTML = 'WELCOME to ClaireOS V. 1.0. Please input command';
+welcome.style.fontWeight = 'bold';
+welcome.style.color = 'white';
+welcome.style.fontFamily = 'courier new';
+welcome.style.textAlign = 'center';
+document.body.insertBefore(welcome, commandLine);
+});
+        </script>
+    </head>
+</html>
